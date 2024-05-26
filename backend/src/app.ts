@@ -3,7 +3,7 @@ import cors from 'cors';
 import logger from 'morgan';
 import { config } from 'dotenv';
 
-import appRouter from './routes';
+import appRouter from './routes/index.js';
 
 config();
 
@@ -21,6 +21,5 @@ app.use("/api", appRouter);
 app.get("/welcome", (req, res, next) => {
     return res.send("Hello World!");
 })
-
 
 export default app;
