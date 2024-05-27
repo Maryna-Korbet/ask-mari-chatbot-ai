@@ -1,7 +1,8 @@
 import app from './app.js';
 import mongoose from 'mongoose';
 
-const { DB_HOST, PORT } = process.env;
+const { DB_HOST } = process.env;
+const PORT = process.env.PORT || 5000;
 
 if (!DB_HOST) {
     throw new Error('DB_HOST is not defined');
