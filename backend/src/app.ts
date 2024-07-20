@@ -15,7 +15,7 @@ app.use(cors());
 app.use(logger(formatLogger));
 app.use(express.json());
 
-app.use("/api", appRouter);
+app.use("/api/v1", appRouter);
 
 
 app.get("/welcome", (req, res, next) => {

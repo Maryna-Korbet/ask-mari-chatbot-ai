@@ -2,8 +2,8 @@ import { Schema, model } from "mongoose";
 import handleMongooseError from '../helpers/handleMongooseError.js';
 import chatSchema from '../models/chat-model.js';
 
-const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/
-const passwordRegexp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+const emailRegexp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+const passwordRegexp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
 const userSchema = new Schema({
     name: {
@@ -27,6 +27,6 @@ const userSchema = new Schema({
 
 userSchema.post("save", handleMongooseError);
 
-const User = model("user", userSchema);
+const User = model("User", userSchema);
 
 export default User;
